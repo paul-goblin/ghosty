@@ -2,11 +2,15 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "build": "remix build",
+    "build": "npm-run-all --sequential build:*",
+    "build:css": "npm run generate:css -- --minify",
+    "build:remix": "remix build",
     "start": "remix-serve build",
     "dev": "npm-run-all --parallel dev:*",
     "dev:app": "remix dev",
     "dev:e2e": "cypress open",
+    "dev:css": "npm run generate:css -- --watch",
+    "generate:css": "tailwindcss -o ./app/styles/tailwind.css",
     "typecheck": "tsc -b"
   },
   "dependencies": {
@@ -29,6 +33,7 @@
     "cypress": "^12.0.1",
     "eslint": "^8.27.0",
     "npm-run-all": "^4.1.5",
+    "tailwindcss": "^3.2.4",
     "typescript": "^4.8.4"
   },
   "engines": {
