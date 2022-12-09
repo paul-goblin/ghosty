@@ -16,6 +16,11 @@ describe('Homepage', () => {
   it('should have a visible canvas element', () => {
     cy.get('canvas').should('be.visible')
   })
+
+  it('should display a ghosty', () => {
+    cy.assertPixiObjectExists({ type: 'ghosty' })
+  })
+
 })
 
 export {}

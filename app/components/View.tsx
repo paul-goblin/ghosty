@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { createApp } from '~/game/app'
+import { createApp, drawGhosty } from '~/game/app'
 
 export const View = () => {
   
@@ -8,6 +8,7 @@ export const View = () => {
   useEffect(() => {
     // @ts-ignore
     wrapperDiv.current?.appendChild(createApp())
+    drawGhosty()
   }, []);
 
   return (

@@ -1,5 +1,8 @@
 /// <reference types="cypress" />
 
+import 'cypress-wait-until'
+import './pixi-data-testing'
+
 const getElement = (selector:string) => {
   return cy.get(`[data-test="${selector}"]`);
 };
