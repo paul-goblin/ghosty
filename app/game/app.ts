@@ -13,17 +13,14 @@ export interface SpriteWithInfo extends Sprite {
 // The PIXI Application should only be created in the browser and not during server-side-rendering.
 let _app : Application | null = null
 
-export function createApp() {
+export function createApp( resizeTo: HTMLElement | null  ) {
   if (!_app) {
     _app = new Application({
-      width: 400,
-      height: 300,
       backgroundColor: 0x1099bb,
       resolution: window.devicePixelRatio || 1,
+      resizeTo: resizeTo || undefined,
     })
     window.pixiApp = _app // to give cypress access to the app
-    console.log('App attached to window')
-    console.log(window.pixiApp)
   }
   return _app.view
 }

@@ -6,14 +6,18 @@ export const View = () => {
   const wrapperDiv = useRef<HTMLDivElement>(null);
   // useEffect only runs in the browser, not on server-side-rendering.
   useEffect(() => {
-    // @ts-ignore
-    wrapperDiv.current?.appendChild(createApp())
+    const view = createApp(wrapperDiv.current);
+    //@ts-ignore
+    wrapperDiv.current?.appendChild(view)
     drawGhosty()
   }, []);
 
   return (
     <>
-      <div ref={wrapperDiv}></div>
+      <div
+        ref={wrapperDiv}
+        className='h-screen'
+      ></div>
     </>
   )
 }
